@@ -1,0 +1,40 @@
+# Relatório Técnico: Previsão da Demanda de Carregamento de Veículos Elétricos
+
+## Descrição do Problema
+
+O desafio proposto envolve o desenvolvimento de um sistema de Inteligência Artificial para otimizar o gerenciamento do carregamento de veículos elétricos. O objetivo principal é prever a demanda de estações de carregamento rápido de veículos elétricos, considerando diferentes aspectos, como o número de estações disponíveis e a previsão da necessidade de carga em áreas específicas. Esta previsão é importante para melhorar a eficiência na distribuição dos recursos de carregamento, minimizar custos e garantir um melhor atendimento aos usuários de veículos elétricos.
+
+## Metodologia Utilizada
+
+Para resolver o problema, foi adotada a abordagem de Machine Learning utilizando um modelo de regressão. Os principais passos da metodologia foram:
+
+1. **Coleta de Dados**: Foi utilizado um dataset disponível no Kaggle, contendo informações sobre estações de carregamento de veículos elétricos, como número de carregadores de nível 2 e de carregamento rápido (DC Fast Count).
+
+2. **Pré-processamento dos Dados**: Os dados foram carregados e, em seguida, tratados para remover valores ausentes e colunas irrelevantes, garantindo que apenas informações necessárias fossem utilizadas. Foi também realizada uma transformação das variáveis categóricas em variáveis dummy para que pudessem ser utilizadas pelo modelo.
+
+3. **Divisão dos Dados**: Os dados foram divididos em conjuntos de treino e teste, na proporção de 80/20, com o intuito de avaliar o desempenho do modelo em dados não vistos.
+
+4. **Treinamento do Modelo**: Foi utilizado o algoritmo RandomForestRegressor, que é robusto e eficiente para lidar com conjuntos de dados tabulares e regressão. O modelo foi treinado com os dados de entrada (features) e a variável alvo (número de estações de carregamento rápido).
+
+5. **Avaliação do Modelo**: O modelo foi avaliado utilizando o erro quadrático médio (Mean Squared Error - MSE). Este valor nos fornece uma medida da precisão do modelo — quanto menor o valor, melhor a previsão.
+
+6. **Previsão de Novos Dados**: Foi criada uma função para prever a demanda de carregamento com base em novos dados fornecidos, facilitando a reutilização do modelo.
+
+## Resultados Obtidos
+
+Após o treinamento do modelo, foi obtido um valor de erro quadrático médio (MSE) de aproximadamente 8,96. Esse valor indica que o modelo tem um desempenho razoável, mas pode ser melhorado. O valor alto do MSE sugere que há margem para aperfeiçoamento, seja no pré-processamento dos dados, na escolha das features, ou mesmo na escolha de outros algoritmos de Machine Learning.
+
+Para visualizar as correlações iniciais, foi criado um gráfico de dispersão entre o número de estações EV de nível 2 e as estações de carregamento rápido (DC Fast Count). A visualização ajudou a identificar algumas relações entre os atributos do dataset, mas também revelou a presença de valores categóricos como "NONE", que precisaram ser tratados.
+
+## Conclusões
+
+O modelo desenvolvido para prever a demanda de carregamento rápido de veículos elétricos apresentou um desempenho inicial que pode ser aprimorado. Algumas conclusões importantes incluem:
+
+1. **Limpeza dos Dados**: A qualidade dos dados foi um fator crítico. Valores ausentes ou categóricos, como "NONE", afetaram negativamente o desempenho do modelo. Melhorar a limpeza e tratamento dos dados é um passo essencial para futuras iterações.
+
+2. **Aprimoramento do Modelo**: Utilizar outras técnicas de feature engineering, experimentar diferentes algoritmos de regressão, e ajustar os hiperparâmetros do modelo são ações que podem melhorar o desempenho.
+
+3. **Próximos Passos**: Para melhorar a precisão do modelo, é recomendável aumentar a qualidade dos dados, explorar mais variáveis que possam ter impacto direto na demanda e testar novos modelos que possam capturar melhor as complexidades dos dados.
+
+O projeto demonstrou que é possível utilizar técnicas de Machine Learning para otimizar o gerenciamento das estações de carregamento, mas também indicou que há espaço significativo para melhorias no processo, desde a coleta até a modelagem dos dados.
+
